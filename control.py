@@ -43,7 +43,7 @@ def readt(Pid,n): #чтение сообщения с помощью их выд
         mousey = mousey - round(meslen * n)
         pywinauto.mouse.release(button='left', coords=(mousex , mousey))
         send_keys('{VK_CONTROL down}' 'c' '{VK_CONTROL up}')
-        time.sleep(1.5)
+        time.sleep(3)
     if n == 0: #Чтобы выделять 1 сообщения ,но я забыл используется ли это вообще
         mousey = mousey - round(meslen * 0.5)
         pywinauto.mouse.click(button='right', coords=(mousex , mousey))
@@ -55,7 +55,5 @@ def readt(Pid,n): #чтение сообщения с помощью их выд
         mousey = mousey + round(10 * (pourcent/100))
         pywinauto.mouse.click(button='left', coords=(mousex, mousey))
         send_keys('^c')
-        time.sleep(0.5)
-    edit = dlg.child_window(title="Отмена")
-    edit.click_input()
+        time.sleep(3)
     return codecs.decode(pyclip.paste(),'unicode_escape').encode('latin1') ,pyclip.paste().decode(), pyclip.clear()
